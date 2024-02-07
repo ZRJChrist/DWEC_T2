@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +14,38 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $users = [
+            [
+                'id' => 1,
+                'name' => "Christopher Joseph Rizo Zeledón",
+                'email' => 'rizo.cristopher@gmail.com',
+                'email_verified_at' => null,
+                'password' => Hash::make('Chris12345'),
+                'remember_token' => null,
+                'created_at' => '2024-01-22 16:11:41',
+                'updated_at' => '2024-01-22 16:11:41',
+            ],
+            [
+                'id' => 2,
+                'name' => "Emma Salvador Vera",
+                'email' => 'emma@techie.com',
+                'email_verified_at' => null,
+                'password' => Hash::make('Emma12345'),
+                'remember_token' => null,
+                'created_at' => '2024-01-23 14:27:15',
+                'updated_at' => '2024-01-23 14:27:15',
+            ],
+            [
+                'id' => 3,
+                'name' => "Mateo Reyes Cobo",
+                'email' => 'mateo@gmail.com',
+                'email_verified_at' => null,
+                'password' => Hash::make('Mateo12345'),
+                'remember_token' => null,
+                'created_at' => '2024-01-24 12:58:22',
+                'updated_at' => '2024-01-24 12:58:22',
+            ],
+        ];
+        DB::table('users')->insert($users);
     }
 }
