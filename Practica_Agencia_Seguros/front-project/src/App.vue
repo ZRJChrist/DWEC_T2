@@ -5,7 +5,7 @@ import NavBar from '@/components/NavBar.vue';
 </script>
 
 <template>
-  <div class="min-h-screen bg-[#e4d7c6] ">
+  <div class="min-h-screen ">
     <NavBar title="Seguros">
       <template #links>
         <ul class="flex font-medium p-0 space-x-8 flex-row mt-0 bg-transparent">

@@ -13,12 +13,12 @@ class CustomersSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('clientes')->insert([
-            ['nombre' => 'Juana Vaquero Cuesta', 'email' => 'juana@hotmail.com', 'telefono' => '739564864', 'localidad' => 'Camós', 'codigoPostal' => '17843', 'provincia_id' => 17, 'tipo' => 1],
-            ['nombre' => 'Nayara Rosa Hidalgo', 'email' => 'nayara@gmail.com', 'telefono' => '742412314', 'localidad' => 'Villar Del Olmo', 'codigoPostal' => '54321', 'provincia_id' => 28, 'tipo' => 0],
-            ['nombre' => 'Esperanza Rubio Heredia', 'email' => 'rubio@yahoo.com', 'telefono' => '624688256', 'localidad' => 'Alameda De La Sagra', 'codigoPostal' => '45991', 'provincia_id' => 45, 'tipo' => 0],
-            ['nombre' => 'Bruno Saiz Singh', 'email' => 'brunoss@gmail.com', 'telefono' => '620491198', 'localidad' => 'Torres De Albarracín', 'codigoPostal' => '44418', 'provincia_id' => 44, 'tipo' => 0],
-            ['nombre' => 'Juan Ignacio Mendez Paz', 'email' => 'juanim@hotmail.com', 'telefono' => '711604438', 'localidad' => 'Sant Jaume De Llierca', 'codigoPostal' => '17934', 'provincia_id' => 17, 'tipo' => 1],
+        DB::table('customer')->insert([
+            ['name' => 'Juana Vaquero Cuesta', 'email' => 'juana@hotmail.com', 'phone' => '739564864', 'city' => 'Camós', 'postal_code' => '17843', 'province_id' => 17, 'type' => 1],
+            ['name' => 'Nayara Rosa Hidalgo', 'email' => 'nayara@gmail.com', 'phone' => '742412314', 'city' => 'Villar Del Olmo', 'postal_code' => '54321', 'province_id' => 28, 'type' => 0],
+            ['name' => 'Esperanza Rubio Heredia', 'email' => 'rubio@yahoo.com', 'phone' => '624688256', 'city' => 'Alameda De La Sagra', 'postal_code' => '45991', 'province_id' => 45, 'type' => 0],
+            ['name' => 'Bruno Saiz Singh', 'email' => 'brunoss@gmail.com', 'phone' => '620491198', 'city' => 'Torres De Albarracín', 'postal_code' => '44418', 'province_id' => 44, 'type' => 0],
+            ['nombre' => 'Juan Ignacio Mendez Paz', 'email' => 'juanim@hotmail.com', 'phone' => '711604438', 'city' => 'Sant Jaume De Llierca', 'postal_code' => '17934', 'province_id' => 17, 'type' => 1],
         ]);
     }
 }

@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('polizas', function (Blueprint $table) {
+        Schema::create('policies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id')->references('id')->on('clientes');
-            $table->string('numero');
-            $table->decimal('importe', 10, 2);
-            $table->date('fecha');
-            $table->enum('estado', ['Cobrada', 'Prepagado', 'Liquidada', 'Anulada', 'Preanulada']);
-            $table->text('observaciones')->nullable();
+            $table->foreignId('customer_id')->references('id')->on('customers');
+            $table->string('number');
+            $table->decimal('mount', 10, 2);
+            $table->enum('status', ['Cobrada', 'Prepagado', 'Liquidada', 'Anulada', 'Preanulada']);
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('polizas');
+        Schema::dropIfExists('policies');
     }
 };

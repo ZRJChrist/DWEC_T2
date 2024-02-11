@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pagos', function (Blueprint $table) {
+        Schema::create('pays', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('poliza_id')->references('id')->on('polizas');
-            $table->decimal('importe', 10, 2);
-            $table->date('fecha');
+            $table->foreignId('policy_id')->references('id')->on('policies');
+            $table->decimal('mount', 10, 2);
             $table->timestamps();
         });
     }

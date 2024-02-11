@@ -1,64 +1,65 @@
 import { defineStore } from 'pinia';
 import Service from '@/services/Service';
 
-const clienteService = new Service('/clientes');
-export const useClienteStore = defineStore({
-    id: 'clientes',
+const serviceCustomer = new Service('/customers');
+
+export const useCustomerStore = defineStore({
+    id: 'customers',
 
     state: () => ({
-        clientes: [],
-        clienteSeleccionado: null,
+        customers: [],
+        selectedCustomer: null,
     }),
 
     actions: {
-        async fetchClientes() {
+        async all() {
             try {
-                const response = await clienteService.getAll();
-                this.clientes = response.data;
+                const response = await serviceCustomer.getAll();
+                this.customers = response.data;
             } catch (error) {
-                console.error('Error al obtener datos', error);
+                console.error(error);
             }
         },
-        async fetchCliente(cliente) {
+        async find(cliente) {
             try {
-                const response = await clienteService.get(cliente.id);
-                this.clientes = response.data;
+                const response = await serviceCustomer.get(cliente.id);
+                this.customers = response.data;
             } catch (error) {
-                console.error('Error al obtener clientes', error);
+                console.error(error);
             }
         },
-        async createCliente(cliente) {
+        async create(cliente) {
             try {
-                const response = await clienteService.create(cliente);
-                this.clientes.push(response.data);
+                const response = await serviceCustomer.create(cliente);
+                this.customers.push(response.data);
             } catch (error) {
-                console.error('Error al crear cliente', error);
+                console.error(error);
             }
         },
 
-        async updateCliente({ id, data }) {
+        async update({ id, data }) {
             try {
-                const response = await clienteService.update(id, data);
-                const index = this.clientes.findIndex(cliente => cliente.id === id);
+                const response = await serviceCustomer.update(id, data);
+                const index = this.customers.findIndex(cliente => cliente.id === id);
                 if (index !== -1) {
-                    this.clientes.splice(index, 1, response.data);
+                    this.customers.splice(index, 1, response.data);
                 }
             } catch (error) {
-                console.error('Error al actualizar cliente', error);
+                console.error(error);
             }
         },
 
-        async deleteCliente(id) {
+        async delete(id) {
             try {
-                await clienteService.delete(id);
-                this.clientes = this.clientes.filter(cliente => cliente.id !== id);
+                await serviceCustomer.delete(id);
+                this.customers = this.customers.filter(customer => customer.id !== id);
             } catch (error) {
-                console.error('Error al eliminar cliente', error);
+                console.error(error);
             }
         },
 
-        setClienteSeleccionado(cliente) {
-            this.clienteSeleccionado = cliente;
+        setSelectedCustomer(customer) {
+            this.selectedCustomer = customer;
         }
     }
 });

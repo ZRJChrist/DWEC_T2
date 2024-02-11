@@ -8,10 +8,18 @@ export default class Service {
         this.#objectUrl = url;
         this.#api = axiosApi;
     }
+    /**
+     * Return all objects
+     * @returns Axios object
+     */
     getAll() {
         return this.#api.get(this.#objectUrl);
     }
-
+    /**
+     * 
+     * @param id The id of the object what will be returned
+     * @returns 
+     */
     get(id) {
         return this.#api.get(`${this.#objectUrl}/${id}`);
     }
